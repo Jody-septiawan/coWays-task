@@ -112,10 +112,10 @@
 
 ## A. Requirements
 
-# 1. Add Profuct
+# 1. Add Music
 
-**url** = {your*host}/api/v1/product
-**recruitments** = \_For image/video file upload, when user add new music, userId automatically insert and associate with product*
+**url** = {your*host}/api/v1/music
+**recruitments** = \_For image/video file upload, when user add new music, userId automatically insert and associate with music*
 
 **method** = POST
 
@@ -152,6 +152,7 @@
       "year": 2004,
       "singer": {
         "id": 4,
+        "name": "Ariel Noah",
         "thumbnail": "<domain>/ariel-noah.png",
         "old": 40,
         "category": "solo",
@@ -162,16 +163,16 @@
         "id": 1,
         "name": "Admin",
         "email": "admin@mail.com",
-        "Image": "admin.jpg"
+        "Image": "<domain>/admin.jpg"
       }
     }
   }
 }
 ```
 
-# 2. Get All products
+# 2. Get All Music
 
-**url** = {your_host}/api/v1/products
+**url** = {your_host}/api/v1/musics
 **method** = GET
 **response body** =
 
@@ -182,44 +183,57 @@
     "products": [
       {
         "id": 1,
-        "image": "mouse-pad.png",
-        "title": "Mouse Pad",
-        "desc": "The best Mouse Pad ...",
-        "price": 500000,
-        "qty": 300
+        "thumbnail": "<domain>/balon-ku-ada-lima.png",
+        "title": "Balon ku ada 5",
+        "year": 2004,
+        "singer": {
+          "id": 4,
+          "name": "Ariel Noah",
+          "thumbnail": "<domain>/ariel-noah.png",
+          "old": 40,
+          "category": "solo",
+          "start_career": 2008
+        },
+        "music_file": "<domain>/balon-ku-ada-lima.mp3"
       },
       {
         "id": 2,
-        "image": "keyboard.png",
-        "title": "Keyboard",
-        "desc": "The best keyboard ...",
-        "price": 3500000,
-        "qty": 200
+        "thumbnail": "<domain>/balon-ku-ada-enam.png",
+        "title": "Balon ku ada 6",
+        "year": 2001,
+        "singer": {
+          "id": 4,
+          "name": "Tulus",
+          "thumbnail": "<domain>/tulus.png",
+          "old": 40,
+          "category": "solo",
+          "start_career": 2005
+        },
+        "music_file": "<domain>/balon-ku-ada-enam.mp3"
       },
       {
         "id": 3,
-        "image": "monitor.png",
-        "title": "Monitor",
-        "desc": "The best Monitor ...",
-        "price": 7200000,
-        "qty": 120
-      },
-      {
-        "id": 4,
-        "image": "mouse.png",
-        "title": "Mouse",
-        "desc": "The best Mouse ...",
-        "price": 5500000,
-        "qty": 230
+        "thumbnail": "<domain>/balon-ku-ada-tujuh.png",
+        "title": "Balon ku ada 7",
+        "year": 2010,
+        "singer": {
+          "id": 4,
+          "name": "Rich Brian",
+          "thumbnail": "<domain>/rich-brian.png",
+          "old": 40,
+          "category": "solo",
+          "start_career": 2008
+        },
+        "music_file": "<domain>/balon-ku-ada-tujuh.mp3"
       }
     ]
   }
 }
 ```
 
-# 3. Get Product Detail
+# 3. Get music Detail
 
-**url** = {your_host}/api/v1/product/:id
+**url** = {your_host}/api/v1/music/:id
 **mehtod** = GET
 
 **request header** =
@@ -237,20 +251,27 @@
   "status": "success",
   "data": {
     "product": {
-      "id": 1,
-      "image": "mouse-pad.png",
-      "title": "Mouse Pad",
-      "desc": "The best Mouse Pad ...",
-      "price": 500000,
-      "qty": 300
+      "id": 3,
+      "thumbnail": "<domain>/balon-ku-ada-tujuh.png",
+      "title": "Balon ku ada 7",
+      "year": 2010,
+      "singer": {
+        "id": 4,
+        "name": "Rich Brian",
+        "thumbnail": "<domain>/rich-brian.png",
+        "old": 40,
+        "category": "solo",
+        "start_career": 2008
+      },
+      "music_file": "<domain>/balon-ku-ada-tujuh.mp3"
     }
   }
 }
 ```
 
-# 4. Update Product
+# 4. Update music
 
-**url** = {your_host}/api/v1/product/:id
+**url** = {your_host}/api/v1/music/:id
 **mehtod** = PATCH
 
 **request header** =
@@ -265,7 +286,7 @@
 
 ```json
 {
-  "desc": "Best Quality Mouse Pad"
+  "desc": "Balon ku ada tujuh"
 }
 ```
 
@@ -276,20 +297,20 @@
   "status": "success",
   "data": {
     "product": {
-      "id": 1,
-      "image": "mouse-pad.png",
-      "title": "Mouse Pad",
-      "desc": "Best Quality Mouse Pad",
-      "price": 500000,
-      "qty": 300
+      "id": 3,
+      "thumbnail": "<domain>/balon-ku-ada-tujuh.png",
+      "title": "Balon ku ada tujuh",
+      "year": 2010,
+      "singer": ,
+      "music_file": "<domain>/balon-ku-ada-tujuh.mp3"
     }
   }
 }
 ```
 
-# 5. Delete Product
+# 5. Delete Music
 
-**url** = {your_host}/api/v1/product/:id
+**url** = {your_host}/api/v1/music/:id
 **mehtod** = DELETE
 
 **request header** =
@@ -306,29 +327,244 @@
 {
   "status": "success",
   "data": {
-    "id": 1
+    "id": 3
   }
 }
 ```
 
 ## B. Instructions
 
-- When you finish this task, move it to "test" list. Then don't forget to push your job on https://github.com/[your_name]_be_dumbgram
+- When you finish this task, move it to "test" list. Then don't forget to push your job on https://github.com/[your_name]_coWays_be
 
-- Create branch `3.Product`.
+- Create branch `3.Music`.
 
   ```bash
-  git checkout -b 3. Product
+  git checkout -b 3. Music
   ```
 
-- Push to branch `3. Product `.
+- Push to branch `3. Music `.
 
   ```bash
     git add .
-    git commit -m "add Product "
-    git push origin 3. Product
+    git commit -m "add Music "
+    git push origin 3. Music
   ```
 
-> `4. Artist`
+> `4. Artis`
+
+# ARTIS API
+
+## A. Requirements
+
+# 1. Add Artis
+
+**url** = {your\*host}/api/v1/artis
+
+**recruitments** =
+
+- Handle file For image/video file upload, when user add new artis
+- category is `solo` or `group`
+
+**method** = POST
+
+**request header** =
+
+```json
+{
+  "Authorization": "Bearer {token}"
+}
+```
+
+**request body** =
+
+```json
+{
+  "name": "Judika",
+  "old": 40,
+  "category": "Solo",
+  "start_a_career": "2002",
+  "thumbnail": "judika-img.jpeg"
+}
+```
+
+**response body** =
+
+```json
+{
+  "status": "success",
+  "data": {
+    "artis": {
+      "id": 1,
+      "name": "Judika",
+      "old": 40,
+      "category": "Solo",
+      "start_a_career": "2002",
+      "thumbnail": "<domain>/judika-img.jpeg"
+    }
+  }
+}
+```
+
+# 2. Get all Artis
+
+**url** = {your\*host}/api/v1/artis
+
+**method** = GET
+
+**response body** =
+
+```json
+{
+  "status": "success",
+  "data": {
+    "artis": [
+        {
+          "id": 1,
+          "name": "Judika",
+          "old": 40,
+          "category": "Solo",
+          "start_a_career": "2002",
+          "thumbnail": "<domain>/judika-img.jpeg"
+        },
+        {
+        "id": 2,
+        "name": "Abel Dustin",
+        "old": 19,
+        "category": "Solo",
+        "start_a_career": "2020",
+        "thumbnail": "<domain>/abel-img.jpeg"
+      }
+      {
+        "id": 3,
+        "name": "Andre Taulany",
+        "old": 45,
+        "category": "Solo",
+        "start_a_career": "1997",
+        "thumbnail": "<domain>/andre-img.jpeg"
+      }
+    ]
+  }
+}
+```
 
 > `5. Transaction`
+
+# 1. Add Transaction
+
+**url** = {your\*host}/api/v1/transaction
+
+**recruitments** =
+
+- Handle file For image/video file upload, when user add new artis
+- category is `solo` or `group`
+
+**method** = POST
+
+**request header** =
+
+```json
+{
+  "Authorization": "Bearer {token}"
+}
+```
+
+**request body** =
+
+```json
+{
+  "account_number": "6872364732894234",
+  "proof_of_transfer": "68794234-transfer.jpeg"
+}
+```
+
+**response body** =
+
+```json
+{
+  "status": "success",
+  "data": {
+    "transaction": {
+      "id": 63,
+      "account_number": "6872364732894234",
+      "proof_of_transfer": "<domain>/68794234-transfer.jpeg",
+      "status": "pending",
+      "user": {
+        "id": 4,
+        "name": "samsul rijal",
+        "email": "samsul@gmail.com",
+        "status": "customer"
+      }
+    }
+  }
+}
+```
+
+# 2. Get all transaction
+
+**url** = {your\*host}/api/v1/transactions
+
+**method** = GET
+
+**response body** =
+
+```json
+{
+  "status": "success",
+  "data": {
+    "transactions": [
+      {
+        "id": 10,
+        "account_number": "987132123232333",
+        "proof_of_transfer": "<domain>/987132123-transfer.jpeg",
+        "status": "success",
+        "remaining_active": 20,
+        "user": {
+          "id": 4,
+          "name": "Jody Septiawan",
+          "email": "jody@gmail.com",
+          "status": "customer"
+        }
+      },
+      {
+        "id": 17,
+        "account_number": "6872364732894234",
+        "proof_of_transfer": "<domain>/68794234-transfer.jpeg",
+        "status": "pending",
+        "remaining_active": 0,
+        "user": {
+          "id": 4,
+          "name": "samsul rijal",
+          "email": "samsul@gmail.com",
+          "status": "customer"
+        }
+      },
+      {
+        "id": 31,
+        "account_number": "293489234894234",
+        "proof_of_transfer": "<domain>/29348923-transfer.jpeg",
+        "status": "success",
+        "remaining_active": 27,
+        "user": {
+          "id": 4,
+          "name": "Radifan",
+          "email": "radif@gmail.com",
+          "status": "customer"
+        }
+      },
+      {
+        "id": 63,
+        "account_number": "6872364732894234",
+        "proof_of_transfer": "<domain>/68794234-transfer.jpeg",
+        "status": "pending",
+        "remaining_active": 0,
+        "user": {
+          "id": 4,
+          "name": "samsul rijal",
+          "email": "samsul@gmail.com",
+          "status": "customer"
+        }
+      }
+    ]
+  }
+}
+```
